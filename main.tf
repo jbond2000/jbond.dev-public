@@ -73,7 +73,6 @@ resource "azurerm_windows_function_app" "res-0" {
   storage_account_name       = azurerm_storage_account.stjbondcloud.name
   storage_account_access_key = azurerm_storage_account.stjbondcloud.primary_access_key
 
-  # Functions v4 + Node worker
   functions_extension_version = "~4"
 
   app_settings = {
@@ -85,7 +84,7 @@ resource "azurerm_windows_function_app" "res-0" {
     minimum_tls_version = "1.2"
     http2_enabled       = true
     application_stack {
-      node_version = "~20"   # <-- switch from dotnet to node
+      node_version = "~20"
     }
   }
 }
@@ -112,3 +111,4 @@ resource "azurerm_static_web_app_custom_domain" "www" {
   validation_type   = "cname-delegation"
   depends_on        = [azurerm_dns_cname_record.www]
 }
+
