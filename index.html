@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jamie Bond — Azure Engineer</title>
-    <meta name="description" content="Azure Cloud Engineer with 7+ years of experience across Azure, FortiGate, and Cisco environments. Specialising in cloud infrastructure, networking, and IaC.">
+    <meta name="description" content="Azure Engineer with 7+ years across UK managed service providers. Experienced in infrastructure automation, networking, and security in multi-tenant environments.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -433,6 +433,61 @@
         .cert-info h4 { font-size: 0.9rem; font-weight: 600; }
         .cert-info p { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
 
+        /* SKILL LEVEL LABELS */
+        .skill-level-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .project-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-card:hover .project-arrow { stroke: var(--accent); }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-card h3 { font-size: 1.1rem; font-weight: 600; }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .project-card .skill-tags { margin-top: auto; }
+
         /* CONTACT */
         .contact-section {
             text-align: center;
@@ -545,6 +600,7 @@
                 <li><a href="#experience" onclick="this.closest('.nav-links').classList.remove('open')">Experience</a></li>
                 <li><a href="#skills" onclick="this.closest('.nav-links').classList.remove('open')">Skills</a></li>
                 <li><a href="#certifications" onclick="this.closest('.nav-links').classList.remove('open')">Certifications</a></li>
+                <li><a href="#projects" onclick="this.closest('.nav-links').classList.remove('open')">Projects</a></li>
                 <li><a href="#contact" onclick="this.closest('.nav-links').classList.remove('open')">Contact</a></li>
             </ul>
         </div>
@@ -552,9 +608,9 @@
 
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-label">Azure Cloud Engineer</span>
+            <span class="hero-label">Azure Engineer</span>
             <h1>Hi, I'm <span class="gradient">Jamie Bond</span></h1>
-            <p>Cloud infrastructure engineer with 7+ years of experience designing, implementing, and supporting solutions across Azure, FortiGate, and Cisco environments at the UK's leading MSPs.</p>
+            <p>Azure engineer with 7+ years across UK managed service providers, progressing from service desk to architectural advisory. Comfortable as the escalation point for complex issues and equally happy building from scratch with Terraform and CI/CD.</p>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -571,9 +627,9 @@
             <h2 class="section-title">Background</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I'm a passionate and highly motivated Azure Cloud Engineer with a strong MSP background spanning some of the UK's top managed service providers. I specialise in designing, implementing, and supporting cloud infrastructure — from networking and security to automation and IaC.</p>
+                    <p>Experienced across infrastructure automation, networking, and security in multi-tenant environments. My MSP background has given me broad technology exposure and a pragmatic, delivery-focused approach — from building monitoring baselines in Terraform to leading security migrations and mentoring junior engineers through technical runbooks.</p>
                     <br>
-                    <p>My experience across diverse customer environments has given me a broad technology exposure and a pragmatic, delivery-focused approach. Whether it's building monitoring baselines in Terraform, leading security migrations, or mentoring junior engineers through technical runbooks — I thrive on solving real problems and making infrastructure better.</p>
+                    <p>Currently developing a full-stack mobile app (Azure Functions, Cosmos DB) as a side project, and always looking for the next thing to build or break.</p>
                 </div>
                 <div class="stats">
                     <div class="stat">
@@ -581,7 +637,7 @@
                         <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-value">7</div>
+                        <div class="stat-value">8</div>
                         <div class="stat-label">Certifications</div>
                     </div>
                     <div class="stat">
@@ -619,7 +675,7 @@
                     <div class="timeline-date">Aug 2024 — Dec 2025</div>
                     <h3 class="timeline-role">Azure Engineer</h3>
                     <p class="timeline-company">Redcentric PLC</p>
-                    <p class="timeline-desc">Delivered BAU support and led small-scale projects across Microsoft technologies, including Windows Server and Azure.</p>
+                    <p class="timeline-desc">Delivered BAU support and led small-scale projects across Windows Server and Azure, with a focus on network security and automation.</p>
                     <ul class="timeline-achievements">
                         <li>Azure network overhaul (private endpoints, UDRs)</li>
                         <li>AVD + Nerdio deployment</li>
@@ -632,9 +688,9 @@
                     <div class="timeline-date">Feb 2024 — Aug 2024</div>
                     <h3 class="timeline-role">Cloud Infrastructure Engineer</h3>
                     <p class="timeline-company">Synextra LTD</p>
-                    <p class="timeline-desc">Expanded into Microsoft Defender, Sentinel, Exchange, and AVD, supporting diverse client security and infrastructure needs.</p>
+                    <p class="timeline-desc">Broadened skill set across Microsoft security and collaboration tooling including Defender, Sentinel, and Exchange in a multi-customer MSP environment.</p>
                     <ul class="timeline-achievements">
-                        <li>Led 2024 CrowdStrike outage response</li>
+                        <li>Led July 2024 CrowdStrike outage response</li>
                         <li>Environment cost &amp; performance improvements</li>
                         <li>AVD patching &amp; maintenance</li>
                         <li>Defender for Endpoint rollout</li>
@@ -644,10 +700,11 @@
                     <div class="timeline-date">Aug 2023 — Jan 2024</div>
                     <h3 class="timeline-role">Cloud Engineer</h3>
                     <p class="timeline-company">ANS Group PLC</p>
-                    <p class="timeline-desc">SME supporting design and optimisation of customer environments, handling complex escalations with hands-on Terraform and AKS experience.</p>
+                    <p class="timeline-desc">Expanded into broader Azure infrastructure work as an SME, supporting environment design, peer reviews, and complex escalations. Gained hands-on experience with Terraform and AKS.</p>
                     <ul class="timeline-achievements">
                         <li>Terraform IaC management</li>
                         <li>Load balancing (50% downtime reduction)</li>
+                        <li>Complex escalation ownership</li>
                         <li>AKS cluster patching</li>
                         <li>Customer cloud reviews</li>
                     </ul>
@@ -656,7 +713,7 @@
                     <div class="timeline-date">Oct 2021 — Aug 2023</div>
                     <h3 class="timeline-role">Cloud Network Engineer</h3>
                     <p class="timeline-company">ANS Group PLC</p>
-                    <p class="timeline-desc">Diagnosed Azure connectivity issues, reviewed and approved changes as SME, and managed extensive networking infrastructure including FortiGate NVAs.</p>
+                    <p class="timeline-desc">Diagnosed and resolved complex Azure networking issues across numerous customer environments. Served as SME for infrastructure change approvals. Worked extensively with Azure load balancers, route tables, network gateways, and FortiGate NVAs.</p>
                     <ul class="timeline-achievements">
                         <li>Complex networking resolution</li>
                         <li>SME change approval</li>
@@ -665,25 +722,15 @@
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Sep 2019 — Oct 2021</div>
-                    <h3 class="timeline-role">2nd Line Technical Analyst</h3>
+                    <div class="timeline-date">Sep 2018 — Oct 2021</div>
+                    <h3 class="timeline-role">Technical Analyst &rarr; 2nd Line Technical Analyst</h3>
                     <p class="timeline-company">ANS Group PLC</p>
-                    <p class="timeline-desc">Managed second-line tickets, delivered standard changes within SLA targets, and owned high-priority incidents alongside the third-line team. Contributed to on-prem to Azure migration projects.</p>
+                    <p class="timeline-desc">Progressed from first-line triage and service desk to second-line ticket ownership and high-priority incident management. Contributed to on-premises to Azure migration projects and worked as part of the 24/7 shift team. Built foundational skills across Cisco UCS, NetApp, Active Directory, and Office 365.</p>
                     <ul class="timeline-achievements">
                         <li>High-priority incident ownership</li>
-                        <li>Cloud migration projects</li>
-                        <li>SLA/KPI performance</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Sep 2018 — Sep 2019</div>
-                    <h3 class="timeline-role">Technical Analyst</h3>
-                    <p class="timeline-company">ANS Group PLC</p>
-                    <p class="timeline-desc">First point of contact on the Service Desk, triaging alerts across Cisco UCS, NetApp, Active Directory, and Office 365.</p>
-                    <ul class="timeline-achievements">
-                        <li>First-line diagnostics</li>
-                        <li>Active Directory management</li>
-                        <li>Monitoring &amp; triage</li>
+                        <li>On-prem to Azure migrations</li>
+                        <li>24/7 shift team</li>
+                        <li>Active Directory &amp; O365</li>
                     </ul>
                 </div>
             </div>
@@ -694,47 +741,20 @@
         <div class="section-inner fade-in">
             <p class="section-label">Skills</p>
             <h2 class="section-title">What I Work With</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-4h6v4"/></svg>
-                    </div>
-                    <h3>Cloud Infrastructure</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Azure VMs</span>
-                        <span class="skill-tag">AVD</span>
-                        <span class="skill-tag">AKS</span>
-                        <span class="skill-tag">Logic Apps</span>
-                        <span class="skill-tag">APIM</span>
-                        <span class="skill-tag">Load Balancers</span>
-                    </div>
-                </div>
+            <p class="skill-level-label">Strong</p>
+            <div class="skills-grid" style="margin-bottom: 2.5rem;">
                 <div class="skill-card">
                     <div class="skill-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
-                    <h3>Networking</h3>
+                    <h3>Azure Networking</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Azure Networking</span>
-                        <span class="skill-tag">FortiGate NVAs</span>
-                        <span class="skill-tag">Cisco</span>
+                        <span class="skill-tag">Load Balancers</span>
+                        <span class="skill-tag">Route Tables</span>
+                        <span class="skill-tag">Gateways</span>
+                        <span class="skill-tag">WAFs</span>
                         <span class="skill-tag">Private Endpoints</span>
                         <span class="skill-tag">UDRs</span>
-                        <span class="skill-tag">VPN/ExpressRoute</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    </div>
-                    <h3>Security</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Microsoft Defender</span>
-                        <span class="skill-tag">Sentinel</span>
-                        <span class="skill-tag">CrowdStrike</span>
-                        <span class="skill-tag">Azure Firewall</span>
-                        <span class="skill-tag">WAF</span>
-                        <span class="skill-tag">Entra ID</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -744,37 +764,41 @@
                     <h3>IaC &amp; DevOps</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Bicep</span>
                         <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">CI/CD</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">YAML Pipelines</span>
-                        <span class="skill-tag">CI/CD</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
-                    <h3>Scripting &amp; Identity</h3>
+                    <h3>Security &amp; Identity</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">FortiGate Firewalls</span>
+                        <span class="skill-tag">Cisco Firewalls</span>
                         <span class="skill-tag">Active Directory</span>
                         <span class="skill-tag">Entra ID</span>
-                        <span class="skill-tag">Exchange</span>
-                        <span class="skill-tag">Office 365</span>
+                        <span class="skill-tag">PowerShell</span>
                     </div>
                 </div>
+            </div>
+            <p class="skill-level-label">Working Knowledge</p>
+            <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-4h6v4"/></svg>
                     </div>
-                    <h3>Monitoring &amp; Operations</h3>
+                    <h3>Cloud Services</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Azure Monitor</span>
-                        <span class="skill-tag">Nerdio</span>
-                        <span class="skill-tag">Alerting</span>
-                        <span class="skill-tag">Incident Response</span>
-                        <span class="skill-tag">ITIL</span>
+                        <span class="skill-tag">AKS</span>
+                        <span class="skill-tag">Bicep</span>
+                        <span class="skill-tag">Sentinel</span>
+                        <span class="skill-tag">Azure APIM</span>
+                        <span class="skill-tag">Logic Apps</span>
+                        <span class="skill-tag">Cosmos DB</span>
+                        <span class="skill-tag">Azure Functions</span>
                     </div>
                 </div>
             </div>
@@ -798,6 +822,13 @@
                     <div class="cert-info">
                         <h4>AZ-700</h4>
                         <p>Azure Network Engineer Associate</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge azure">AZ</div>
+                    <div class="cert-info">
+                        <h4>AZ-900</h4>
+                        <p>Azure Fundamentals</p>
                     </div>
                 </div>
                 <div class="cert-card">
@@ -835,6 +866,43 @@
                         <p>Network Engineer</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-inner fade-in">
+            <p class="section-label">Projects</p>
+            <h2 class="section-title">What I'm Building</h2>
+            <div class="projects-grid">
+                <a href="https://quidly.xyz" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-header">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        <svg class="project-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </div>
+                    <h3>Quidly.xyz</h3>
+                    <p>A mobile budget tracking app built for me and my partner. Full-stack build using Python, Azure Functions, Cosmos DB, and JWT authentication, with CI/CD deployment.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Azure Functions</span>
+                        <span class="skill-tag">Cosmos DB</span>
+                        <span class="skill-tag">JWT Auth</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </a>
+                <a href="https://github.com/jbond2000/jbond.dev-public" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-header">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <svg class="project-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </div>
+                    <h3>Jbond.dev</h3>
+                    <p>This portfolio site. Built using GitHub Pages with a GitHub Actions workflow to auto-deploy after every push to the main branch.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML/CSS/JS</span>
+                        <span class="skill-tag">GitHub Pages</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
