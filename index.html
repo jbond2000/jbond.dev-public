@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamie Bond — Azure Engineer</title>
+    <meta name="description" content="Azure Cloud Engineer with 7+ years of experience across Azure, FortiGate, and Cisco environments. Specialising in cloud infrastructure, networking, and IaC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --border: #1e1e2e;
+            --text: #e4e4e7;
+            --text-muted: #71717a;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        nav .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        nav .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav .nav-links a:hover { color: var(--text); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, -1%); }
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 .gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+        }
+
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); transform: translateY(-1px); }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover { border-color: var(--accent); background: var(--accent-glow); }
+
+        /* SECTIONS */
+        section { padding: 5rem 2rem; }
+
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+
+        .stat:hover { border-color: rgba(59, 130, 246, 0.3); }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* EXPERIENCE */
+        .timeline { position: relative; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--accent);
+        }
+
+        .timeline-item.current::before {
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-achievements {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-achievements li {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.2s;
+        }
+
+        .skill-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+        .skill-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-secondary);
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* CERTS */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.2s;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .cert-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .cert-badge.azure { background: rgba(59, 130, 246, 0.15); color: var(--accent); }
+        .cert-badge.cisco { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+        .cert-badge.aws { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+        .cert-badge.other { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+
+        .cert-info h4 { font-size: 0.9rem; font-weight: 600; }
+        .cert-info p { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+        /* CONTACT */
+        .contact-section {
+            text-align: center;
+            padding-bottom: 6rem;
+        }
+
+        .contact-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .contact-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav .nav-links { display: none; }
+            nav .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 15, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--border);
+            }
+            .hamburger { display: flex; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            section { padding: 3.5rem 1.25rem; }
+            .timeline-achievements li { font-size: 0.75rem; }
+        }
+
+        @media (max-width: 480px) {
+            .stats { grid-template-columns: 1fr; }
+            .certs-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <span class="logo">jbond.dev</span>
+            <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about" onclick="this.closest('.nav-links').classList.remove('open')">About</a></li>
+                <li><a href="#experience" onclick="this.closest('.nav-links').classList.remove('open')">Experience</a></li>
+                <li><a href="#skills" onclick="this.closest('.nav-links').classList.remove('open')">Skills</a></li>
+                <li><a href="#certifications" onclick="this.closest('.nav-links').classList.remove('open')">Certifications</a></li>
+                <li><a href="#contact" onclick="this.closest('.nav-links').classList.remove('open')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Azure Cloud Engineer</span>
+            <h1>Hi, I'm <span class="gradient">Jamie Bond</span></h1>
+            <p>Cloud infrastructure engineer with 7+ years of experience designing, implementing, and supporting solutions across Azure, FortiGate, and Cisco environments at the UK's leading MSPs.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Get in touch
+                </a>
+                <a href="#experience" class="btn btn-outline">View my experience</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-inner fade-in">
+            <p class="section-label">About</p>
+            <h2 class="section-title">Background</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a passionate and highly motivated Azure Cloud Engineer with a strong MSP background spanning some of the UK's top managed service providers. I specialise in designing, implementing, and supporting cloud infrastructure — from networking and security to automation and IaC.</p>
+                    <br>
+                    <p>My experience across diverse customer environments has given me a broad technology exposure and a pragmatic, delivery-focused approach. Whether it's building monitoring baselines in Terraform, leading security migrations, or mentoring junior engineers through technical runbooks — I thrive on solving real problems and making infrastructure better.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value">7+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">7</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Roles Held</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" style="background: var(--bg-card);">
+        <div class="section-inner fade-in">
+            <p class="section-label">Experience</p>
+            <h2 class="section-title">Career Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item current">
+                    <div class="timeline-date">Dec 2025 — Present</div>
+                    <h3 class="timeline-role">Azure Cloud Engineer</h3>
+                    <p class="timeline-company">Telana LTD</p>
+                    <p class="timeline-desc">Split between brownfield project delivery and managed services, serving as the primary escalation point for complex Azure infrastructure issues. Trusted SME across the customer base, advising on architecture and implementing solutions directly.</p>
+                    <ul class="timeline-achievements">
+                        <li>Terraform monitoring baseline via CI/CD</li>
+                        <li>Defender to CrowdStrike migration</li>
+                        <li>Discovery audits &amp; cost optimisation</li>
+                        <li>Technical runbook library</li>
+                        <li>Eliminated recurring outages</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2024 — Dec 2025</div>
+                    <h3 class="timeline-role">Azure Engineer</h3>
+                    <p class="timeline-company">Redcentric PLC</p>
+                    <p class="timeline-desc">Delivered BAU support and led small-scale projects across Microsoft technologies, including Windows Server and Azure.</p>
+                    <ul class="timeline-achievements">
+                        <li>Azure network overhaul (private endpoints, UDRs)</li>
+                        <li>AVD + Nerdio deployment</li>
+                        <li>Azure APIM via YAML pipelines</li>
+                        <li>Logic Apps automation</li>
+                        <li>PowerShell scripting</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 2024 — Aug 2024</div>
+                    <h3 class="timeline-role">Cloud Infrastructure Engineer</h3>
+                    <p class="timeline-company">Synextra LTD</p>
+                    <p class="timeline-desc">Expanded into Microsoft Defender, Sentinel, Exchange, and AVD, supporting diverse client security and infrastructure needs.</p>
+                    <ul class="timeline-achievements">
+                        <li>Led 2024 CrowdStrike outage response</li>
+                        <li>Environment cost &amp; performance improvements</li>
+                        <li>AVD patching &amp; maintenance</li>
+                        <li>Defender for Endpoint rollout</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2023 — Jan 2024</div>
+                    <h3 class="timeline-role">Cloud Engineer</h3>
+                    <p class="timeline-company">ANS Group PLC</p>
+                    <p class="timeline-desc">SME supporting design and optimisation of customer environments, handling complex escalations with hands-on Terraform and AKS experience.</p>
+                    <ul class="timeline-achievements">
+                        <li>Terraform IaC management</li>
+                        <li>Load balancing (50% downtime reduction)</li>
+                        <li>AKS cluster patching</li>
+                        <li>Customer cloud reviews</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2021 — Aug 2023</div>
+                    <h3 class="timeline-role">Cloud Network Engineer</h3>
+                    <p class="timeline-company">ANS Group PLC</p>
+                    <p class="timeline-desc">Diagnosed Azure connectivity issues, reviewed and approved changes as SME, and managed extensive networking infrastructure including FortiGate NVAs.</p>
+                    <ul class="timeline-achievements">
+                        <li>Complex networking resolution</li>
+                        <li>SME change approval</li>
+                        <li>FortiGate &amp; gateway support</li>
+                        <li>Cross-functional (Entra, Logic Apps, WAF)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2019 — Oct 2021</div>
+                    <h3 class="timeline-role">2nd Line Technical Analyst</h3>
+                    <p class="timeline-company">ANS Group PLC</p>
+                    <p class="timeline-desc">Managed second-line tickets, delivered standard changes within SLA targets, and owned high-priority incidents alongside the third-line team. Contributed to on-prem to Azure migration projects.</p>
+                    <ul class="timeline-achievements">
+                        <li>High-priority incident ownership</li>
+                        <li>Cloud migration projects</li>
+                        <li>SLA/KPI performance</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2018 — Sep 2019</div>
+                    <h3 class="timeline-role">Technical Analyst</h3>
+                    <p class="timeline-company">ANS Group PLC</p>
+                    <p class="timeline-desc">First point of contact on the Service Desk, triaging alerts across Cisco UCS, NetApp, Active Directory, and Office 365.</p>
+                    <ul class="timeline-achievements">
+                        <li>First-line diagnostics</li>
+                        <li>Active Directory management</li>
+                        <li>Monitoring &amp; triage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-inner fade-in">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">What I Work With</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-4h6v4"/></svg>
+                    </div>
+                    <h3>Cloud Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure VMs</span>
+                        <span class="skill-tag">AVD</span>
+                        <span class="skill-tag">AKS</span>
+                        <span class="skill-tag">Logic Apps</span>
+                        <span class="skill-tag">APIM</span>
+                        <span class="skill-tag">Load Balancers</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>Networking</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure Networking</span>
+                        <span class="skill-tag">FortiGate NVAs</span>
+                        <span class="skill-tag">Cisco</span>
+                        <span class="skill-tag">Private Endpoints</span>
+                        <span class="skill-tag">UDRs</span>
+                        <span class="skill-tag">VPN/ExpressRoute</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Security</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Defender</span>
+                        <span class="skill-tag">Sentinel</span>
+                        <span class="skill-tag">CrowdStrike</span>
+                        <span class="skill-tag">Azure Firewall</span>
+                        <span class="skill-tag">WAF</span>
+                        <span class="skill-tag">Entra ID</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>IaC &amp; DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Bicep</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">YAML Pipelines</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Scripting &amp; Identity</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Entra ID</span>
+                        <span class="skill-tag">Exchange</span>
+                        <span class="skill-tag">Office 365</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Monitoring &amp; Operations</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure Monitor</span>
+                        <span class="skill-tag">Nerdio</span>
+                        <span class="skill-tag">Alerting</span>
+                        <span class="skill-tag">Incident Response</span>
+                        <span class="skill-tag">ITIL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" style="background: var(--bg-card);">
+        <div class="section-inner fade-in">
+            <p class="section-label">Certifications</p>
+            <h2 class="section-title">Credentials</h2>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-badge azure">AZ</div>
+                    <div class="cert-info">
+                        <h4>AZ-104</h4>
+                        <p>Azure Administrator Associate</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge azure">AZ</div>
+                    <div class="cert-info">
+                        <h4>AZ-700</h4>
+                        <p>Azure Network Engineer Associate</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge cisco">CC</div>
+                    <div class="cert-info">
+                        <h4>CCNA</h4>
+                        <p>Cisco Certified Network Associate</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge cisco">CC</div>
+                    <div class="cert-info">
+                        <h4>Cisco Cyber Ops</h4>
+                        <p>CyberOps Associate</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge other">IT</div>
+                    <div class="cert-info">
+                        <h4>ITIL 4 Foundation</h4>
+                        <p>IT Service Management</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge aws">AW</div>
+                    <div class="cert-info">
+                        <h4>AWS Cloud Practitioner</h4>
+                        <p>Amazon Web Services</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge other">BC</div>
+                    <div class="cert-info">
+                        <h4>BCS Level 4</h4>
+                        <p>Network Engineer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="section-inner fade-in">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Let's Connect</h2>
+            <p>Interested in working together or have a question? Feel free to reach out.</p>
+            <div class="contact-links">
+                <a href="mailto:jamie2000bond@gmail.com" class="contact-link">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    jamie2000bond@gmail.com
+                </a>
+                <a href="https://github.com/jbond2000" class="contact-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jamie Bond. Built with care.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
